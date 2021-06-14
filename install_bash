@@ -1,0 +1,26 @@
+#!/bin/bash
+
+####################################################################################################
+# This is the first installer by bash.                                                             #
+# This run only checking version and install python modules.                                       #
+# Second installer is install_main.py                                                              #
+####################################################################################################
+
+
+########## CONFIG ##########
+version='v0.1'
+############################
+
+# Check running by root privillage
+if [ $1 =! 'root' ]
+then
+  sudo su -c './install'
+  exit
+fi
+
+# Cheking installer's version is the latest
+if [ $version != $(wget -qO- https://raw.githubusercontent.com/TamaTamaGoGo/RPi-Tools/master/install) ]
+then
+  wget -qO- https://raw.githubusercontent.com/TamaTamaGoGo/RPi-Tools/master/install | sudo bash
+  exit
+fi
