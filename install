@@ -1,6 +1,7 @@
 #!/bin/bash
 
-if [ $1 != 'root' ]{
+if [ $1 != 'root' ]
+then
   sudo su -c './install'
   exit
-}
+fi
